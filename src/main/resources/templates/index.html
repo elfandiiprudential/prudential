@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+    xmlns:th="http://www.thymeleaf.org"
+    namespace:th:
+-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Rental</title>
+</head>
+<body>
+<form method="POST" action="/submit">
+    <select  class="form-control zz-set-input-size" id="vehicle" name="vehicle" required>
+        <option value="">Select</option>
+
+        <option th:each="vehicle : ${vehicles}"><div th:text="${vehicle.key}" th:name="vehicle" th:value="${vehicle.key}" /></option>
+    </select>
+    <input type="submit" value="Submit">
+</form>
+<table>
+    <tbody th:each="article : ${vehicles}">
+    <tr>
+        <td th:text="${article.key}"></td>
+        <td th:text="${article.value}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
